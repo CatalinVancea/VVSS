@@ -14,10 +14,9 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import org.apache.log4j.Logger;
 import tasks.model.Task;
-import tasks.services.DateTimeService;
+import tasks.services.DefaultDateTimeService;
 import tasks.services.TaskIO;
 import tasks.services.TasksService;
-import tasks.services.TasksServiceInterface;
 
 import java.io.IOException;
 import java.time.LocalDate;
@@ -42,8 +41,8 @@ public class NewEditController {
 
     private Task currentTask;
     private ObservableList<Task> tasksList;
-    private TasksServiceInterface service;
-    private DateTimeService dateService;
+    private TasksService service;
+    private DefaultDateTimeService dateService;
 
 
     private boolean incorrectInputMade;
@@ -72,9 +71,9 @@ public class NewEditController {
         this.tasksList =tasksList;
     }
 
-    public void setService(TasksServiceInterface service){
+    public void setService(TasksService service){
         this.service =service;
-        this.dateService =new DateTimeService(service);
+        this.dateService =new DefaultDateTimeService(service);
     }
 
     public void setCurrentTask(Task task){
@@ -198,7 +197,7 @@ public class NewEditController {
         if (checkBoxRepeated.isSelected()){
             Date endDateWithNoTime = dateService.getDateValueFromLocalDate(datePickerEnd.getValue());
             Date newEndDate = dateService.getDateMergedWithTime(txtFieldTimeEnd.getText(), endDateWithNoTime);
-            int newInterval = DateTimeService.parseFromStringToSeconds(fieldInterval.getText());
+            int newInterval = DefaultDateTimeService.parseFromStringToSeconds(fieldInterval.getText());
             if (newStartDate.after(newEndDate)) throw new IllegalArgumentException("Start date should be before end");
             result = new Task(newTitle, newStartDate,newEndDate, newInterval);
         }

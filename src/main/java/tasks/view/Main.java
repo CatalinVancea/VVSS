@@ -12,8 +12,8 @@ import tasks.controller.Notificator;
 import tasks.model.ArrayTaskList;
 import tasks.model.TaskListInterface;
 import tasks.services.TaskIO;
+import tasks.services.DefaultTasksService;
 import tasks.services.TasksService;
-import tasks.services.TasksServiceInterface;
 
 import java.io.File;
 import java.io.IOException;
@@ -31,7 +31,7 @@ public class Main extends Application {
     private static ClassLoader classLoader = Main.class.getClassLoader();
     public static File savedTasksFile = new File(classLoader.getResource("data/tasks.txt").getFile());
 
-    private TasksServiceInterface service = new TasksService(savedTasksList);//savedTasksList); //todo-code issue
+    private TasksService service = new DefaultTasksService(savedTasksList);//savedTasksList); //todo-code issue
 
     @Override
     public void start(Stage primaryStage) throws Exception {
@@ -46,7 +46,7 @@ public class Main extends Application {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/main.fxml"));
             Parent root = loader.load();//loader.load(this.getClass().getResource("/fxml/main.fxml"));
             TaskListController ctrl= loader.getController();
-            service = new TasksService(savedTasksList);
+            service = new DefaultTasksService(savedTasksList);
 
             ctrl.setService(service);
             primaryStage.setTitle("Task Manager");
