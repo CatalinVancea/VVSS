@@ -4,31 +4,34 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import tasks.model.ArrayTaskList;
 import tasks.model.Task;
+import tasks.model.TaskListInterface;
 import tasks.model.TasksOperations;
 
 import java.util.Date;
 
-public class TasksService {
+public class TasksService implements TasksServiceInterface{
 
-    private ArrayTaskList tasks;
+    private TaskListInterface tasks;
 
-    public TasksService(ArrayTaskList tasks){
+    public TasksService(TaskListInterface tasks){
         this.tasks = tasks;
     }
 
-
+    @Override
     public ObservableList<Task> getObservableList(){
         return FXCollections.observableArrayList(tasks.getAll());
     }
 
+    @Override
     public String getIntervalInHours(Task task){
         int seconds = task.getRepeatInterval();
-        int minutes = seconds / DateService.SECONDS_IN_MINUTE;
-        int hours = minutes / DateService.MINUTES_IN_HOUR;
-        minutes = minutes % DateService.MINUTES_IN_HOUR;
-        return DateService.formTimeUnit(hours) + ":" + DateService.formTimeUnit(minutes);//hh:MM
+        int minutes = seconds / DateTimeService.SECONDS_IN_MINUTE;
+        int hours = minutes / DateTimeService.MINUTES_IN_HOUR;
+        minutes = minutes % DateTimeService.MINUTES_IN_HOUR;
+        return DateTimeService.formTimeUnit(hours) + ":" + DateTimeService.formTimeUnit(minutes);//hh:MM
     }
 
+    @Override
     public Iterable<Task> filterTasks(Date start, Date end){
         TasksOperations tasksOps = new TasksOperations(getObservableList());
         Iterable<Task> filtered = tasksOps.incoming(start,end);

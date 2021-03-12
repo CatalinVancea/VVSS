@@ -54,6 +54,7 @@ public class LinkedTaskList  extends TaskList {
         if (last!= null) last.setNext(newNode);
         last = newNode;
     }
+
     @Override
     public boolean remove(Task task) {
         if (isNull(task)) {
@@ -81,6 +82,7 @@ public class LinkedTaskList  extends TaskList {
     public int size() {
         return numberOfTasks;
     }
+
     @Override
     public Task getTask(int index) {
         if (index < 0 || index > size()-1) {

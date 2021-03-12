@@ -6,6 +6,7 @@ import org.apache.log4j.Logger;
 import tasks.model.LinkedTaskList;
 import tasks.model.Task;
 import tasks.model.TaskList;
+import tasks.model.TaskListInterface;
 import tasks.view.*;
 
 import java.io.*;
@@ -43,7 +44,7 @@ public class TaskIO {
             dataOutputStream.close();
         }
     }
-    public static void read(TaskList tasks, InputStream in)throws IOException {
+    public static void read(TaskListInterface tasks, InputStream in)throws IOException {
         DataInputStream dataInputStream = new DataInputStream(in);
         try {
             int listLength = dataInputStream.readInt();
@@ -83,7 +84,7 @@ public class TaskIO {
         }
     }
 
-    public static void readBinary(TaskList tasks, File file) throws IOException{
+    public static void readBinary(TaskListInterface tasks, File file) throws IOException{
         FileInputStream fis = null;
         try {
             fis = new FileInputStream(file);

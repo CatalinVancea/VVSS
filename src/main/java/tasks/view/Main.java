@@ -10,8 +10,10 @@ import org.apache.log4j.Logger;
 import tasks.controller.TaskListController;
 import tasks.controller.Notificator;
 import tasks.model.ArrayTaskList;
+import tasks.model.TaskListInterface;
 import tasks.services.TaskIO;
 import tasks.services.TasksService;
+import tasks.services.TasksServiceInterface;
 
 import java.io.File;
 import java.io.IOException;
@@ -24,12 +26,12 @@ public class Main extends Application {
 
     private static final Logger log = Logger.getLogger(Main.class.getName());
 
-    private ArrayTaskList savedTasksList = new ArrayTaskList();
+    private TaskListInterface savedTasksList = new ArrayTaskList();
 
     private static ClassLoader classLoader = Main.class.getClassLoader();
     public static File savedTasksFile = new File(classLoader.getResource("data/tasks.txt").getFile());
 
-    private TasksService service = new TasksService(savedTasksList);//savedTasksList); //todo-code issue
+    private TasksServiceInterface service = new TasksService(savedTasksList);//savedTasksList); //todo-code issue
 
     @Override
     public void start(Stage primaryStage) throws Exception {
