@@ -18,16 +18,16 @@ public class DefaultDateTimeService implements DateTimeService {
 
     private TasksService service; //todo- treaba pentru sonar-lint
 
-    public DefaultDateTimeService(TasksService service){
-        this.service=service;
+    public DefaultDateTimeService(TasksService service) {
+        this.service = service;
     }
 
-    public static LocalDate getLocalDateValueFromDate(Date date){//for setting to DatePicker - requires LocalDate
+    public static LocalDate getLocalDateValueFromDate(Date date) {//for setting to DatePicker - requires LocalDate
         return date.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
     }
 
     @Override
-    public Date getDateValueFromLocalDate(LocalDate localDate){//for getting from DatePicker
+    public Date getDateValueFromLocalDate(LocalDate localDate) {//for getting from DatePicker
         Instant instant = Instant.from(localDate.atStartOfDay(ZoneId.systemDefault()));
         return Date.from(instant);
     }
@@ -37,7 +37,8 @@ public class DefaultDateTimeService implements DateTimeService {
         String[] units = time.split(":");
         int hour = Integer.parseInt(units[0]);
         int minute = Integer.parseInt(units[1]);
-        if (hour > HOURS_IN_A_DAY || minute > MINUTES_IN_HOUR) throw new IllegalArgumentException("time unit exceeds bounds");
+        if (hour > HOURS_IN_A_DAY || minute > MINUTES_IN_HOUR)
+            throw new IllegalArgumentException("time unit exceeds bounds");
         Calendar calendar = GregorianCalendar.getInstance();
         calendar.setTime(noTimeDate);
         calendar.set(Calendar.HOUR_OF_DAY, hour);
@@ -46,7 +47,7 @@ public class DefaultDateTimeService implements DateTimeService {
     }
 
     @Override
-    public String getTimeOfTheDayFromDate(Date date){//to set in detached time field
+    public String getTimeOfTheDayFromDate(Date date) {//to set in detached time field
         Calendar calendar = GregorianCalendar.getInstance();
         calendar.setTime(date);
         int hours = calendar.get(Calendar.HOUR_OF_DAY);
@@ -55,7 +56,7 @@ public class DefaultDateTimeService implements DateTimeService {
         return formTimeUnit(hours) + ":" + formTimeUnit(minutes);
     }
 
-    public static String formTimeUnit(int timeUnit){
+    public static String formTimeUnit(int timeUnit) {
         StringBuilder sb = new StringBuilder();
         if (timeUnit < 10) sb.append("0");
         if (timeUnit == 0) sb.append("0");
@@ -65,12 +66,16 @@ public class DefaultDateTimeService implements DateTimeService {
         return sb.toString();
     }
 
-    public static int parseFromStringToSeconds(String stringTime){//hh:MM
+    public static int parseFromStringToSeconds(String stringTime) {//hh:MM
         String[] units = stringTime.split(":");
         int hours = Integer.parseInt(units[0]);
         int minutes = Integer.parseInt(units[1]);
+
+        return (hours * DefaultDateTimeService.MINUTES_IN_HOUR + minutes) * DefaultDateTimeService.SECONDS_IN_MINUTE;
+
+        /*
         int result = (hours * DefaultDateTimeService.MINUTES_IN_HOUR + minutes) * DefaultDateTimeService.SECONDS_IN_MINUTE;
         return result;
+        */
     }
-
 }

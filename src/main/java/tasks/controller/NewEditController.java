@@ -79,9 +79,11 @@ public class NewEditController {
     public void setCurrentTask(Task task){
         this.currentTask=task;
         switch (clickedButton.getId()){
-            case  "btnNew" : initNewWindow("New Task");
+            case "btnNew" : initNewWindow("New Task");
                 break;
             case "btnEdit" : initEditWindow("Edit Task");
+                break;
+            default:
                 break;
         }
     }
@@ -89,13 +91,6 @@ public class NewEditController {
     @FXML
     public void initialize(){
         log.info("new/edit window initializing");
-//        switch (clickedButton.getId()){
-//            case  "btnNew" : initNewWindow("New Task");
-//                break;
-//            case "btnEdit" : initEditWindow("Edit Task");
-//                break;
-//        }
-
     }
     private void initNewWindow(String title){
         currentStage.setTitle(title);
@@ -106,13 +101,13 @@ public class NewEditController {
     private void initEditWindow(String title){
         currentStage.setTitle(title);
         fieldTitle.setText(currentTask.getTitle());
-        datePickerStart.setValue(dateService.getLocalDateValueFromDate(currentTask.getStartTime()));
+        datePickerStart.setValue(DefaultDateTimeService.getLocalDateValueFromDate(currentTask.getStartTime()));
         txtFieldTimeStart.setText(dateService.getTimeOfTheDayFromDate(currentTask.getStartTime()));
 
         if (currentTask.isRepeated()){
             checkBoxRepeated.setSelected(true);
             hideRepeatedTaskModule(false);
-            datePickerEnd.setValue(dateService.getLocalDateValueFromDate(currentTask.getEndTime()));
+            datePickerEnd.setValue(DefaultDateTimeService.getLocalDateValueFromDate(currentTask.getEndTime()));
             fieldInterval.setText(service.getIntervalInHours(currentTask));
             txtFieldTimeEnd.setText(dateService.getTimeOfTheDayFromDate(currentTask.getEndTime()));
         }
@@ -124,12 +119,16 @@ public class NewEditController {
     @FXML
     public void switchRepeatedCheckbox(ActionEvent actionEvent){
         CheckBox source = (CheckBox)actionEvent.getSource();
+
+        hideRepeatedTaskModule(!source.isSelected());
+        /*
         if (source.isSelected()){
             hideRepeatedTaskModule(false);
         }
         else if (!source.isSelected()){
             hideRepeatedTaskModule(true);
         }
+         */
     }
     private void hideRepeatedTaskModule(boolean toShow){
         datePickerEnd.setDisable(toShow);
@@ -206,9 +205,6 @@ public class NewEditController {
         }
         boolean isActive = checkBoxActive.isSelected();
         result.setActive(isActive);
-        System.out.println(result);
         return result;
     }
-
-
 }

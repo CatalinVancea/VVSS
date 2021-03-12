@@ -7,13 +7,13 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import org.apache.log4j.Logger;
-import tasks.controller.TaskListController;
 import tasks.controller.Notificator;
+import tasks.controller.TaskListController;
 import tasks.model.ArrayTaskList;
 import tasks.model.TaskListInterface;
-import tasks.services.impl.TaskIO;
-import tasks.services.impl.DefaultTasksService;
 import tasks.services.TasksService;
+import tasks.services.impl.DefaultTasksService;
+import tasks.services.impl.TaskIO;
 
 import java.io.File;
 import java.io.IOException;
@@ -31,11 +31,10 @@ public class Main extends Application {
     private static ClassLoader classLoader = Main.class.getClassLoader();
     public static File savedTasksFile = new File(classLoader.getResource("data/tasks.txt").getFile());
 
-    private TasksService service = new DefaultTasksService(savedTasksList);//savedTasksList); //todo-code issue
+    private TasksService service = new DefaultTasksService(savedTasksList);
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-
 
         log.info("saved data reading");
         if (savedTasksFile.length() != 0) {
