@@ -14,8 +14,8 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import org.apache.log4j.Logger;
 import tasks.model.Task;
-import tasks.services.DefaultDateTimeService;
-import tasks.services.TaskIO;
+import tasks.services.impl.DefaultDateTimeService;
+import tasks.services.impl.TaskIO;
 import tasks.services.TasksService;
 
 import java.io.IOException;

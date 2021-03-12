@@ -11,8 +11,8 @@ import tasks.controller.TaskListController;
 import tasks.controller.Notificator;
 import tasks.model.ArrayTaskList;
 import tasks.model.TaskListInterface;
-import tasks.services.TaskIO;
-import tasks.services.DefaultTasksService;
+import tasks.services.impl.TaskIO;
+import tasks.services.impl.DefaultTasksService;
 import tasks.services.TasksService;
 
 import java.io.File;

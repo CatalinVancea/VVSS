@@ -1,12 +1,13 @@
 tasks\model\ArrayTaskList.class
+tasks\services\impl\DefaultDateTimeService.class
 tasks\model\LinkedTaskList.class
-tasks\services\TaskIO.class
 tasks\view\Main.class
 tasks\controller\TaskListController.class
 tasks\controller\TaskInfoController.class
 tasks\model\ArrayTaskList$1.class
 tasks\model\LinkedTaskList$Node.class
 tasks\model\ArrayTaskList$ArrayTaskListIterator.class
+tasks\services\impl\TaskIO.class
 tasks\model\Task.class
 tasks\services\TasksService.class
 tasks\controller\Notificator.class
@@ -14,8 +15,7 @@ tasks\model\TaskListInterface.class
 tasks\services\DateTimeService.class
 tasks\controller\NewEditController.class
 tasks\model\TaskList.class
+tasks\services\impl\DefaultTasksService.class
 tasks\model\LinkedTaskList$1.class
 tasks\model\LinkedTaskList$LinkedTaskListIterator.class
-tasks\services\DefaultTasksService.class
-tasks\services\DefaultDateTimeService.class
 tasks\model\TasksOperations.class

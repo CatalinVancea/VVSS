@@ -1,10 +1,11 @@
-package tasks.services;
+package tasks.services.impl;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import tasks.model.Task;
 import tasks.model.TaskListInterface;
 import tasks.model.TasksOperations;
+import tasks.services.TasksService;
 
 import java.util.Date;
 
