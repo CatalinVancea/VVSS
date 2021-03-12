@@ -16,3 +16,6 @@
 2021-03-07 17:18:10 INFO  Main:38 - saved data reading
 2021-03-07 17:18:10 INFO  Main:43 - application start
 2021-03-07 17:18:11 INFO  Controller:75 - Main controller initializing
+2021-03-12 20:05:57 INFO  Main:38 - saved data reading
+2021-03-12 20:05:57 INFO  Main:43 - application start
+2021-03-12 20:05:57 INFO  TaskListController:75 - Main controller initializing

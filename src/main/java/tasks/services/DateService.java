@@ -37,14 +37,33 @@ public class DateService {
         calendar.set(Calendar.MINUTE, minute);
         return calendar.getTime();
     }
-        public String getTimeOfTheDayFromDate(Date date){//to set in detached time field
+
+    public static String formTimeUnit(int timeUnit){
+        StringBuilder sb = new StringBuilder();
+        if (timeUnit < 10) sb.append("0");
+        if (timeUnit == 0) sb.append("0");
+        else {
+            sb.append(timeUnit);
+        }
+        return sb.toString();
+    }
+
+    public static int parseFromStringToSeconds(String stringTime){//hh:MM
+        String[] units = stringTime.split(":");
+        int hours = Integer.parseInt(units[0]);
+        int minutes = Integer.parseInt(units[1]);
+        int result = (hours * DateService.MINUTES_IN_HOUR + minutes) * DateService.SECONDS_IN_MINUTE;
+        return result;
+    }
+
+
+    public String getTimeOfTheDayFromDate(Date date){//to set in detached time field
         Calendar calendar = GregorianCalendar.getInstance();
         calendar.setTime(date);
         int hours = calendar.get(Calendar.HOUR_OF_DAY);
         int minutes = calendar.get(Calendar.MINUTE);
 
-        return service.formTimeUnit(hours) + ":" + service.formTimeUnit(minutes);
+        return formTimeUnit(hours) + ":" + formTimeUnit(minutes);
     }
-
 
 }

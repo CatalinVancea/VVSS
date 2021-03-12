@@ -7,7 +7,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import org.apache.log4j.Logger;
-import tasks.controller.Controller;
+import tasks.controller.TaskListController;
 import tasks.controller.Notificator;
 import tasks.model.ArrayTaskList;
 import tasks.services.TaskIO;
@@ -29,7 +29,7 @@ public class Main extends Application {
     private static ClassLoader classLoader = Main.class.getClassLoader();
     public static File savedTasksFile = new File(classLoader.getResource("data/tasks.txt").getFile());
 
-    private TasksService service = new TasksService(savedTasksList);//savedTasksList);
+    private TasksService service = new TasksService(savedTasksList);//savedTasksList); //todo-code issue
 
     @Override
     public void start(Stage primaryStage) throws Exception {
@@ -43,7 +43,7 @@ public class Main extends Application {
             log.info("application start");
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/main.fxml"));
             Parent root = loader.load();//loader.load(this.getClass().getResource("/fxml/main.fxml"));
-            Controller ctrl= loader.getController();
+            TaskListController ctrl= loader.getController();
             service = new TasksService(savedTasksList);
 
             ctrl.setService(service);
