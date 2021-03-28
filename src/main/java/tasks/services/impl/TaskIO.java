@@ -138,7 +138,11 @@ public class TaskIO {
         }
     }
 
-    //// service methods for reading
+    /**
+     *
+     * @param line
+     * @return
+     */
     private static Task getTaskFromString(String line) {
         boolean isRepeated = line.contains("from");//if contains - means repeated
         boolean isActive = !line.contains("inactive");//if doesnt have inactive - means active
