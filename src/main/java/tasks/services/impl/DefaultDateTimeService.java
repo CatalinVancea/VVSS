@@ -16,11 +16,6 @@ public class DefaultDateTimeService implements DateTimeService {
     public static final int MINUTES_IN_HOUR = 60;
     public static final int HOURS_IN_A_DAY = 24;
 
-    private TasksService service; //todo- treaba pentru sonar-lint
-
-    public DefaultDateTimeService(TasksService service) {
-        this.service = service;
-    }
 
     public static LocalDate getLocalDateValueFromDate(Date date) {//for setting to DatePicker - requires LocalDate
         return date.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();

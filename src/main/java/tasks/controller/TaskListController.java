@@ -57,7 +57,7 @@ public class TaskListController {
 
     public void setService(TasksService service){
         this.service=service;
-        this.dateService=new DefaultDateTimeService(service);
+        this.dateService=new DefaultDateTimeService();
         this.tasksList=service.getObservableList();
         updateCountLabel(tasksList);
         tasks.setItems(tasksList);

@@ -58,3 +58,36 @@
 2021-03-28 16:01:18 INFO  Main:39 - saved data reading
 2021-03-28 16:01:18 INFO  Main:44 - application start
 2021-03-28 16:01:18 INFO  TaskListController:75 - Main controller initializing
+2021-03-28 18:35:16 INFO  Main:39 - saved data reading
+2021-03-28 18:35:16 INFO  Main:44 - application start
+2021-03-28 18:35:42 INFO  Main:39 - saved data reading
+2021-03-28 18:35:42 INFO  Main:44 - application start
+2021-03-28 18:36:12 INFO  Main:39 - saved data reading
+2021-03-28 18:36:12 INFO  Main:44 - application start
+2021-03-28 18:38:16 INFO  Main:39 - saved data reading
+2021-03-28 18:38:16 INFO  Main:44 - application start
+2021-03-28 18:38:17 INFO  TaskListController:75 - Main controller initializing
+2021-03-28 18:39:33 INFO  Main:39 - saved data reading
+2021-03-28 18:39:33 INFO  Main:44 - application start
+2021-03-28 18:39:33 INFO  TaskListController:75 - Main controller initializing
+2021-03-28 18:39:47 INFO  NewEditController:93 - new/edit window initializing
+2021-03-28 18:55:26 INFO  Main:39 - saved data reading
+2021-03-28 18:55:26 INFO  Main:44 - application start
+2021-03-28 18:55:26 INFO  TaskListController:75 - Main controller initializing
+2021-03-28 18:55:29 INFO  NewEditController:93 - new/edit window initializing
+2021-03-28 19:01:40 INFO  Main:39 - saved data reading
+2021-03-28 19:01:40 INFO  Main:44 - application start
+2021-03-28 19:01:40 INFO  TaskListController:75 - Main controller initializing
+2021-03-28 19:01:42 INFO  NewEditController:93 - new/edit window initializing
+2021-03-28 19:03:37 INFO  Main:39 - saved data reading
+2021-03-28 19:03:37 INFO  Main:44 - application start
+2021-03-28 19:03:37 INFO  TaskListController:75 - Main controller initializing
+2021-03-28 19:03:38 INFO  NewEditController:93 - new/edit window initializing
+2021-03-28 19:10:42 INFO  NewEditController:93 - new/edit window initializing
+2021-03-28 19:13:31 INFO  NewEditController:93 - new/edit window initializing
+2021-03-28 19:16:38 ERROR Task:41 - interval < than 1
+2021-03-28 19:18:09 INFO  Main:39 - saved data reading
+2021-03-28 19:18:09 INFO  Main:44 - application start
+2021-03-28 19:18:09 INFO  TaskListController:75 - Main controller initializing
+2021-03-28 19:18:19 INFO  NewEditController:93 - new/edit window initializing
+2021-03-28 19:19:20 ERROR Task:41 - interval < than 1
