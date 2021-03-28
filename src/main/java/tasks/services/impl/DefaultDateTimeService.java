@@ -29,10 +29,13 @@ public class DefaultDateTimeService implements DateTimeService {
 
     @Override
     public Date getDateMergedWithTime(String time, Date noTimeDate) {//to retrieve Date object from both DatePicker and time field
+
         String[] units = time.split(":");
+
+
         int hour = Integer.parseInt(units[0]);
         int minute = Integer.parseInt(units[1]);
-        if (hour > HOURS_IN_A_DAY || minute > MINUTES_IN_HOUR)
+        if (hour >= HOURS_IN_A_DAY || minute >= MINUTES_IN_HOUR || minute < 0 || hour < 0)
             throw new IllegalArgumentException("time unit exceeds bounds");
         Calendar calendar = GregorianCalendar.getInstance();
         calendar.setTime(noTimeDate);
