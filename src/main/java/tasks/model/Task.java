@@ -107,10 +107,14 @@ public class Task implements Serializable, Cloneable {
             if (current.before(start)){
                 return start;
             }
+            //start <= current <= end
             if ((current.after(start) || current.equals(start)) && (current.before(end) || current.equals(end))){
+                //i = start:end i+= interval
                 for (long i = start.getTime(); i <= end.getTime(); i += interval*1000){
+                    //current == timeAfter
                     if (current.equals(timeAfter)) return new Date(timeAfter.getTime()+interval*1000);
-                    if (current.after(timeBefore) && current.before(timeAfter)) return timeBefore;//return timeAfter
+                    //   timeBefore < current < timeAfter
+                    if (current.after(timeBefore) && current.before(timeAfter)) return timeAfter;//return timeAfter
                     timeBefore = timeAfter;
                     timeAfter = new Date(timeAfter.getTime()+ interval*1000);
                 }
