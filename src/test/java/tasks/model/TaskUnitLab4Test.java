@@ -9,7 +9,7 @@ import java.util.Date;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class TaskTest {
+class TaskUnitLab4Test {
 
     long oneDayMillis = 24*60*60*1000;
     int intervalSeconds = 3600;

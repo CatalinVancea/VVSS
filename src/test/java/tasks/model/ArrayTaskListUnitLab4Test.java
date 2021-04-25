@@ -3,22 +3,25 @@ package tasks.model;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.mockito.Mockito;
 
 import java.util.Date;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class ArrayTaskListTest {
+class ArrayTaskListUnitLab4Test {
 
 
     ArrayTaskList list;
+
     @BeforeEach
     void setUp() {
         list = new ArrayTaskList();
-        list.add(new Task("t1",new Date(System.currentTimeMillis())));
-        list.add(new Task("t2",new Date(System.currentTimeMillis())));
-        list.add(new Task("t3",new Date(System.currentTimeMillis())));
+        list.add(Mockito.mock(Task.class));
+        list.add(Mockito.mock(Task.class));
+        list.add(Mockito.mock(Task.class));
+
     }
 
     @AfterEach

@@ -21,3 +21,11 @@ j
 :src/main/java/tasks/services/impl/DefaultTasksService.java,9\6\9684ffe96416fe85cedb985801f7277cbdaf38f7
 ]
 -src/main/java/tasks/services/impl/TaskIO.java,8\f\8fb95864233bb1015b60a2801d9e26c512622cbe
+q
+Asrc/test/java/tasks/services/impl/DefaultDateTimeServiceTest.java,d\0\d06844f40aa6479fa9905affbcbc4cd696bd525e
+^
+.src/main/java/tasks/model/TasksOperations.java,4\f\4f01b9f8917f794cdf589fb86ab1f8dec2bc64a1
+b
+2src/test/java/tasks/model/TasksOperationsTest.java,2\5\256f630053d25ab19bee195a49b509c868810e3d
+i
+9src/test/java/tasks/controller/NewEditControllerTest.java,3\7\37c5227067038b24989aac026b3d5deb3328aa53

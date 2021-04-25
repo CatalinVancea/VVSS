@@ -8,6 +8,7 @@ import tasks.model.TasksOperations;
 import tasks.services.TasksService;
 
 import java.util.Date;
+import java.util.List;
 
 public class DefaultTasksService implements TasksService {
 
@@ -17,9 +18,13 @@ public class DefaultTasksService implements TasksService {
         this.tasks = tasks;
     }
 
+    public List<Task> getAllTasks(){
+        return tasks.getAll();
+    }
+
     @Override
     public ObservableList<Task> getObservableList() {
-        return FXCollections.observableArrayList(tasks.getAll());
+        return FXCollections.observableArrayList(getAllTasks());
     }
 
     @Override
